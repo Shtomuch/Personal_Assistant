@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "my_project"
+version = "0.1.0"
+description = ""
+authors = ["Shtoma Denys <denys.shtoma@knu.ua>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.1"
+black = "^24.8.0"
+requests = "^2.32.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
