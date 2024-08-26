@@ -12,6 +12,8 @@ django = "^5.1"
 black = "^24.8.0"
 requests = "^2.32.3"
 dj-database-url = "^2.2.0"
+django-environ = "^0.11.2"
+psycopg2-binary = "2.9.9"
 
 
 [build-system]
