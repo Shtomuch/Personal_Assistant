@@ -5,7 +5,7 @@
     <h2>Login</h2>
 </div>
 
-<form method="post" action="{% url 'users:signin' %}?next={% url 'home' %}">
+<form method="post" action="{% url 'users:login' %}?next={% url 'users:profile' %}">
     {% csrf_token %}
     <div >
         <label> Username:

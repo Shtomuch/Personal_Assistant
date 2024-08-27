@@ -26,12 +26,20 @@
                     {% csrf_token %}
                     <button type="submit" class="btn btn-warning">Logout</button>
             </form>
-                <a href="{% url 'users:signup' %}" class="btn btn-info">Signup</a>
-                <a href="{% url 'users:signin' %}" class="btn btn-primary">Login</a>
+                <a href="{% url 'users:registration' %}" class="btn btn-info">Signup</a>
+                <a href="{% url 'users:login' %}" class="btn btn-primary">Login</a>
             </p>
         </div>
     </div>
-
+      {% if messages %}
+    <div class="alert-box">
+        {% for message in messages %}
+        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
 
     {% block content %} {% endblock %}
 
