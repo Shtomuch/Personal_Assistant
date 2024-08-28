@@ -27,7 +27,11 @@
                     <button type="submit" class="btn btn-warning">Logout</button>
             </form>
                 <a href="{% url 'users:registration' %}" class="btn btn-info">Signup</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'users:profile' username=request.user.username %}" class="btn btn-primary">Enter my profile</a>
+            {% else %}
                 <a href="{% url 'users:login' %}" class="btn btn-primary">Login</a>
+            {% endif %}
             </p>
         </div>
     </div>

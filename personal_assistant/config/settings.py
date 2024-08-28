@@ -13,12 +13,13 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 import environ
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 env = environ.Env()
 environ.Env.read_env(BASE_DIR / ".env")
@@ -87,16 +88,16 @@ WSGI_APPLICATION = "config.wsgi.application"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'HOST': env('DATABASE_HOST', default='postgres'),
-        'PORT': env.int('DATABASE_PORT', default=5432),
-        'CONN_MAX_AGE': env.int('DATABASE_CONN_MAX_AGE', default=30),
-        'NAME': env('POSTGRES_DB ', default='postgres'),
-        'USER': env('POSTGRES_USER', default='postgres'),
-        'PASSWORD': env('POSTGRES_PASSWORD', default='postgres'),
-        'OPTIONS': {
-            'sslmode': env('DATABASE_SSL_MODE', default='prefer'),
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "HOST": env("DATABASE_HOST", default="postgres"),
+        "PORT": env.int("DATABASE_PORT", default=5432),
+        "CONN_MAX_AGE": env.int("DATABASE_CONN_MAX_AGE", default=30),
+        "NAME": env("POSTGRES_DB ", default="postgres"),
+        "USER": env("POSTGRES_USER", default="postgres"),
+        "PASSWORD": env("POSTGRES_PASSWORD", default="postgres"),
+        "OPTIONS": {
+            "sslmode": env("DATABASE_SSL_MODE", default="prefer"),
         },
     },
 }
@@ -143,7 +144,9 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend" # для відправки reset_password
+EMAIL_BACKEND = (
+    "django.core.mail.backends.smtp.EmailBackend"  # для відправки reset_password
+)
 EMAIL_HOST = env("EMAIL_HOST")
 EMAIL_PORT = env("EMAIL_PORT")
 EMAIL_STARTTLS = False
@@ -153,7 +156,9 @@ EMAIL_HOST_USER = env("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-AUTH_USER_MODEL = 'users.CustomUser' # щоб джанго бачив перевизначені моделі юзера
+AUTH_USER_MODEL = "users.CustomUser"  # щоб джанго бачив перевизначені моделі юзера
 
-MEDIA_URL = '/media/' # тимчасово, для зберігання локально, потім мабуть якось на хмару грузити будемо
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = "/media/"  # тимчасово, для зберігання локально, потім мабуть якось на хмару грузити будемо
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+LOGIN_REDIRECT_URL = "/users/accounts/profile/%(username)s/"

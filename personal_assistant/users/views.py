@@ -1,17 +1,14 @@
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.views import PasswordResetView
+from django.contrib.auth.views import PasswordResetView, LoginView
 from django.contrib.messages.views import SuccessMessageMixin
-from django.shortcuts import render, redirect
-from django.urls import reverse_lazy
+from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse_lazy, reverse
 from django.views import View
 from django.contrib import messages
 from django.shortcuts import render
 
 from .forms import RegisterForm, UserProfileForm
-
-
-def home(request):
-    return render(request, "users/base.html")
+from .models import CustomUser
 
 
 class RegisterView(View):
@@ -35,8 +32,15 @@ class RegisterView(View):
         return render(request, self.template_name, {"form": form})
 
 
+class CustomLoginView(LoginView):
+    def get_success_url(self):
+        username = self.request.user.username
+        return reverse("users:profile", kwargs={"username": username})
+
+
 @login_required
-def profile(request):
+def profile(request, username):
+    user = get_object_or_404(CustomUser, username=username)
     if request.method == "POST":
         profile_form = UserProfileForm(
             request.POST, request.FILES, instance=request.user
@@ -44,10 +48,12 @@ def profile(request):
         if profile_form.is_valid():
             profile_form.save()
             messages.success(request, "Your profile is updated successfully")
-            return redirect(to="users:profile")
+            return redirect("users:profile", username=user.username)
 
     profile_form = UserProfileForm(instance=request.user)
-    return render(request, "users/profile.html", {"profile_form": profile_form})
+    return render(
+        request, "users/profile.html", {"profile_form": profile_form, "user": user}
+    )
 
 
 class ResetPasswordView(SuccessMessageMixin, PasswordResetView):

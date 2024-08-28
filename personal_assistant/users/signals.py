@@ -7,7 +7,7 @@ from contacts.models import Contact
 
 @receiver(
     [post_save, post_delete], sender=Contact
-)  # для того, щоб колонка updated_at реагувала на зміни в контактах, ще не ясно чи працює
+)  # для того, щоб колонка updated_at реагувала на зміни в контактах, ще не ясно чи працює потрібні таблиці
 def update_user_last_updated(sender, instance, **kwargs):
     user = instance.user
     user.last_updated = timezone.now()

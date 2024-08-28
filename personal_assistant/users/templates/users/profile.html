@@ -4,7 +4,11 @@
 
 <div>
     <h1>Profile page: {{user.username}}</h1>
-    <img src="{{ user.profile.avatar.url }}" alt="avatar of user"/>
+    {% if user.avatar %}
+    <img src="{{ user.avatar.url }}" alt="{{ user.username }}'s avatar">
+{% else %}
+    <p>No avatar uploaded</p>
+{% endif %}
 </div>
 
 {% if messages %}
