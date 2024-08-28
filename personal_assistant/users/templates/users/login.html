@@ -1,0 +1,30 @@
+{% extends "users/base.html" %}
+
+{% block content %}
+<div>
+    <h2>Login</h2>
+</div>
+
+<form method="post" action="{% url 'users:login' %}{% if request.user.is_authenticated %}?next={% url 'users:profile' username=request.user.username %}{% endif %}">
+    {% csrf_token %}
+    <div >
+        <label> Username:
+            {{ form.username }}
+        </label>
+        <span>{{ form.errors.username }}</span>
+    </div>
+    <div>
+        <label> Password:
+            {{ form.password }}
+        </label>
+        <span>{{ form.errors.password }}</span>
+    </div>
+    <div class="grid">
+        <button type="submit">Submit</button>
+        <button type="reset" class="secondary">Reset</button>
+    </div>
+    <div class="small text-center">
+        <a href="{% url "users:password_reset" %}" class="text-center"><i>Forgot Password?</i></a>
+    </div>
+</form>
+{% endblock %}
