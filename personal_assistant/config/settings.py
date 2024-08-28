@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-env = environ.Env()
+env = environ.Env( DEBUG=(bool, False))
 environ.Env.read_env('./.env')
 
 
