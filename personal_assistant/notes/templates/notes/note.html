@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+
+{% block title %}
+   <title>Add Page</title>
+{% endblock %}
+
+{% block content %}
+<h1>Note Form</h1>
+<div class="container">
+   <form method="post" class="jumbotron">
+       {% csrf_token %}
+       <input type="submit" value="Place Order" class="btn btn-success">
+   </form>
+</div>
+{% endblock %}
