@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2>My Notes</h2>
+        {% if notes %}
+            <a href="{% url 'create_url' %}" class="btn btn-success mb-3">Create New Note</a>
+            <form method="GET" action="" class="form-inline mb-4">
+                <input type="text" name="q" placeholder="Enter tag" class="form-control mb-2 mr-sm-2" value="{{ query }}">
+                <button type="submit" class="btn btn-primary mb-2">Search by Tag</button>
+            </form>
+
+            {% if query %}
+                <a href="{% url 'main_url' %}" class="btn btn-secondary mb-4">Back to All Notes</a>
+            {% endif %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Date Created</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for note in notes %}
+                    <tr>
+                        <td>{{ note.title }}</td>
+                        <td>{{ note.created_at }}</td>
+                        <td>
+                            <a href="{% url 'show_url' note.id %}" class="btn btn-info btn-sm">Show</a>
+                            <a href="{% url 'update_url' note.id %}" class="btn btn-warning btn-sm">Update</a>
+                            <form action="{% url 'delete_url' note.id %}" method="post" style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No notes available. <a href="{% url 'create_url' %}" class="btn btn-success mb-3">Create New Note</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

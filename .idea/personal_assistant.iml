@@ -5,11 +5,4 @@
     <orderEntry type="jdk" jdkName="Python 3.12 (my-project-oa8DpUy6-py3.12)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
-  <component name="PyNamespacePackagesService">
-    <option name="namespacePackageFolders">
-      <list>
-        <option value="$MODULE_DIR$/personal_assistant/users/templates/users" />
-      </list>
-    </option>
-  </component>
 </module>

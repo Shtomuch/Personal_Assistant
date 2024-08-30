@@ -1,37 +1,36 @@
-{% extends 'main.html' %}
-
-{% block title %}
-   <title>Show Page</title>
-{% endblock %}
+{% extends 'base.html' %}
 
 {% block content %}
-<center><h1>Show Notes</h1></center>
-<table class="table">
-   <thead>
-     <tr>
-       <th scope="col">NoteID</th>
-       <th scope="col">UserId</th>
-       <th scope="col">Title</th>
-       <th scope="col">Content</th>
-       <th scope="col">Created_at</th>
-       <th scope="col">Tags</th>
-     </tr>
-   </thead>
-   <tbody>
-   {% for i in obj %}
-     <tr>
-       <td>{{i.id}}</td>
-       <td>{{i.user_id}}</td>
-       <td>{{i.title}}</td>
-       <td>{{i.content}}</td>
-       <td>{{i.created_at}}</td>
-       <td>{{i.tags}}</td>
-       <td>
-           <button class="btn btn-warning"><a href="{% url 'update_url' i.id %}">Update</a></button>&nbsp;&nbsp;
-           <button class="btn btn-danger"><a href="{% url 'delete_url' i.id %}">Delete</a></button>
-       </td>
-     </tr>
-   {% endfor %}
-   </tbody>
- </table>
-{% endblock %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Note Details</h2>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ note.title }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Created at: {{ note.created_at }}</h6>
+                    <p class="card-text">{{ note.content }}</p>
+
+                    {% if note.tags.all %}
+                        <h6 class="card-subtitle mb-2 text-muted">Tags:</h6>
+                        <ul>
+                            {% for tag in note.tags.all %}
+                                <li>{{ tag.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>No tags assigned.</p>
+                    {% endif %}
+
+                    <a href="{% url 'main_url' %}" class="btn btn-primary">Back to List</a>
+                    <a href="{% url 'update_url' note.id %}" class="btn btn-warning">Edit</a>
+                    <form action="{% url 'delete_url' note.id %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
