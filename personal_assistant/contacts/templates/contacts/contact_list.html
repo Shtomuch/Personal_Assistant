@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact List</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Contact List</h1>
+
+    <form method="GET" action="{% url 'contact_list' %}">
+        <input type="text" name="q" placeholder="Search by name, phone, or email" value="{{ request.GET.q }}">
+        <input type="date" name="birthday" value="{{ request.GET.birthday }}">
+        <button type="submit">Search</button>
+    </form>
+
+    <ul>
+        {% for contact in contacts %}
+            <li>
+                <strong>{{ contact.first_name }} {{ contact.last_name }}</strong><br>
+                Phone: {{ contact.phone_number }}<br>
+                Email: {{ contact.email }}<br>
+                Address: {{ contact.address }}<br>
+                Birthday: {{ contact.birthday|date:"F j, Y" }}<br>
+                <a href="{% url 'contact_edit' contact.pk %}">Edit</a> |
+                <a href="{% url 'contact_delete' contact.pk %}">Delete</a>
+            </li>
+        {% empty %}
+            <li>No contacts found.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'contact_create' %}">Add New Contact</a>
+</body>
+</html>
