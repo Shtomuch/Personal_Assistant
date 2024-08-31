@@ -2,46 +2,70 @@
 
 {% block content %}
 
-<div>
-    <h1>Profile page: {{user.username}}</h1>
-    {% if user.avatar %}
-    <img src="{{ user.avatar.url }}" alt="{{ user.username }}'s avatar">
-{% else %}
-    <p>No avatar uploaded</p>
-{% endif %}
-</div>
+<div class="profile-container">
+    <!-- Ліва колонка -->
+    <div class="left-column">
+        <div>
+            <h1>Profile: {{user.username}}</h1>
+            {% if user.avatar %}
+            <img src="{{ user.avatar.url }}" alt="{{ user.username }}'s avatar" class="avatar">
+            {% else %}
+            <p>No avatar uploaded</p>
+            {% endif %}
+        </div>
 
-{% if messages %}
-<div>
-    {% for message in messages %}
-    <div {% if message.tags %} class="alert-{{ message.tags }}" {% endif %}>{{ message }}</div>
-    {% endfor %}
-</div>
-{% endif %}
+        {% if messages %}
+        <div>
+            {% for message in messages %}
+            <div {% if message.tags %} class="alert-{{ message.tags }}" {% endif %}>{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
 
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class="form-row">
-        <div class="col-md-5">
-            <div class="form-group">
-                <label class="small mb-1">Change Avatar:</label>
-                {{ profile_form.avatar }}
-                <span>{{ profile_form.errors.avatar }}</span>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="small mb-1">Change Avatar:</label>
+                        {{ profile_form.avatar }}
+                        <span>{{ profile_form.errors.avatar }}</span>
+                    </div>
+                </div>
             </div>
+            <div class="grid">
+                <button type="submit" class="small-btn">Save Changes</button>
+                <button type="reset" class="small-btn secondary">Reset</button>
+            </div>
+        </form>
+
+        <div class="grid" style="margin-top: 20px;">
+            <a href="files" class="btn btn-modern">My Contacts</a>
+            <a href="files" class="btn btn-modern">My Notes</a>
+            <a href="files" class="btn btn-modern">My Files</a>
         </div>
     </div>
-    <div class="grid">
-        <button type="submit">Save Changes</button>
-        <button type="reset" class="secondary">Reset</button>
-    </div>
 
-</form>
-<div class="grid" style="margin-top: 20px;">
-    <a href="files" class="btn btn-warning">My Contacts</a>
-    <a href="files" class="btn btn-warning">My Notes</a>
-    <a href="files" class="btn btn-warning">My Files</a>
-    <a href="files" class="btn btn-warning">News</a>
+    <!-- Права колонка для новин -->
+    <div class="right-column">
+        <h2 class="news-title">Latest News</h2>
+        <div class="news-sections">
+            {% for category, news_items in categorized_news.items %}
+            <div class="news-category">
+                <h3>{{ category|capfirst }}</h3>
+                <div class="news-list-wrapper">
+                    <ul class="news-list">
+                        {% for news_item in news_items %}
+                        <li>
+                            <a href="{{ news_item.link }}">{{ news_item.title }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
 
 {% endblock content %}
-

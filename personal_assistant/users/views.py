@@ -1,6 +1,9 @@
+import json
+
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import PasswordResetView, LoginView
 from django.contrib.messages.views import SuccessMessageMixin
+from django.core.management import call_command
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy, reverse
 from django.views import View
@@ -37,9 +40,20 @@ class CustomLoginView(LoginView):
         username = self.request.user.username
         return reverse("users:profile", kwargs={"username": username})
 
+    def form_invalid(self, form):
+        messages.error(self.request, "Wrong username or password")
+        return super().form_invalid(form)
+
 
 @login_required
 def profile(request, username):
+    call_command("scrape_news")
+    try:
+        with open("utils/categorized_news.json", "r", encoding="utf-8") as file:
+            categorized_news = json.load(file)
+    except FileNotFoundError:
+        categorized_news = {}
+
     user = get_object_or_404(CustomUser, username=username)
     if request.method == "POST":
         profile_form = UserProfileForm(
@@ -52,7 +66,13 @@ def profile(request, username):
 
     profile_form = UserProfileForm(instance=request.user)
     return render(
-        request, "users/profile.html", {"profile_form": profile_form, "user": user}
+        request,
+        "users/profile.html",
+        {
+            "profile_form": profile_form,
+            "user": user,
+            "categorized_news": categorized_news,
+        },
     )
 
 
