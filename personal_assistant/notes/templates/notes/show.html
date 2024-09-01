@@ -25,8 +25,9 @@
                     <a href="{% url 'main_url' %}" class="btn btn-primary">Back to List</a>
                     <a href="{% url 'update_url' note.id %}" class="btn btn-warning">Edit</a>
                     <form action="{% url 'delete_url' note.id %}" method="post" style="display:inline;">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger btn-sm" style="background-color: red; border-color: red;">Delete
+                                </button>
                     </form>
                 </div>
             </div>

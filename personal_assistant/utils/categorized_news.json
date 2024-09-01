@@ -117,6 +117,10 @@
     ],
     "football": [
         {
+            "title": "LIVE: Manchester United vs Liverpool – English Premier League football",
+            "link": "https://www.aljazeera.com/sports/liveblog/2024/9/1/live-manchester-united-vs-liverpool-english-premier-league-football"
+        },
+        {
             "title": "FIFA delays again review of Palestinian call to suspend Israel",
             "link": "https://www.aljazeera.com/sports/2024/8/31/palestinian-call-for-israel-football-suspension-delayed-again-by-fifa"
         },
@@ -167,10 +171,6 @@
         {
             "title": "Vardy strikes to earn Leicester City a draw against wasteful Spurs",
             "link": "https://www.aljazeera.com/sports/liveblog/2024/8/19/live-leicester-city-vs-tottenham-hotspur-english-premier-league-football"
-        },
-        {
-            "title": "Manchester City make strong start to title defence with 2-0 win at Chelsea",
-            "link": "https://www.aljazeera.com/sports/liveblog/2024/8/18/live-chelsea-vs-manchester-city-english-premier-league-football-match"
         }
     ]
 }

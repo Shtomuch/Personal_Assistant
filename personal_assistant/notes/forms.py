@@ -6,9 +6,11 @@ from notes.models import Notes, Tag
 class NoteForm(forms.ModelForm):
     class Meta:
         model = Notes
-        fields = ["title", "content", "tags"]
+        fields = ['title', 'content', 'tags']
         widgets = {
-            'tag': CheckboxSelectMultiple()
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'content': forms.Textarea(attrs={'class': 'form-control'}),
+            'tags': forms.CheckboxSelectMultiple(),
         }
 
 class TagCreateForm(forms.ModelForm):
