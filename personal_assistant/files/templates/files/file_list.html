@@ -1,0 +1,38 @@
+{% extends 'users/base.html' %}
+
+{% block content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Files</title>
+</head>
+<body>
+    <h1>Your Files</h1>
+    <form method="GET">
+        <select name="category">
+            <option value="all" {% if category == 'all' %}selected{% endif %}>All</option>
+            <option value="image" {% if category == 'image' %}selected{% endif %}>Images</option>
+            <option value="document" {% if category == 'document' %}selected{% endif %}>Documents</option>
+            <option value="video" {% if category == 'video' %}selected{% endif %}>Videos</option>
+            <option value="other" {% if category == 'other' %}selected{% endif %}>Other</option>
+        </select>
+        <button type="submit">Filter</button>
+    </form>
+    <ul>
+        {% for file in files %}
+            <li>
+                <a href="{{ file.file.url }}">{{ file.title }}</a> ({{ file.category }})<br>
+                Uploaded at: {{ file.uploaded_at|date:"F j, Y, g:i a" }}<br>
+                <a href="{% url 'download_file' file.id %}">Download</a> |
+                <a href="{% url 'delete_file' file.id %}">Delete</a>
+            </li>
+        {% empty %}
+            <li>No files found.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'upload_file' %}">Upload New File</a>
+</body>
+</html>
+
+{% endblock content %}

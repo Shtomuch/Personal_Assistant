@@ -6,7 +6,7 @@ from users.models import CustomUser
 
 
 class Contact(models.Model):
-    user_id = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='contacts')
     first_name = models.CharField(max_length=50, verbose_name="First Name")
     last_name = models.CharField(max_length=50, verbose_name="Last Name")
     email = models.EmailField(unique=True, verbose_name="Email Address")

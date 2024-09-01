@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 env = environ.Env(DEBUG=(bool, False))
-environ.Env.read_env("./.env")
+environ.Env.read_env("../.env")
 
 
 # Quick-start development settings - unsuitable for production
@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "files",
     "notes",
     "users",
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -148,7 +149,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 EMAIL_BACKEND = (
     "django.core.mail.backends.smtp.EmailBackend"  # для відправки reset_password
 )
-EMAIL_HOST = env("EMAIL_HOST")
+EMAIL_HOST = env("EMAIL_HOST" , default="smtp.meta.com")
 EMAIL_PORT = env("EMAIL_PORT")
 EMAIL_STARTTLS = False
 EMAIL_USE_SSL = True
@@ -161,3 +162,16 @@ AUTH_USER_MODEL = "users.CustomUser"  # щоб джанго бачив пере�
 
 MEDIA_URL = "/media/"  # тимчасово, для зберігання локально, потім мабуть якось на хмару грузити будемо
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+
+# Налаштування DigitalOcean Spaces
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID = "DO00TX7TULW62JTNG4BP"
+AWS_SECRET_ACCESS_KEY = "1mQNOqASku1tQeICxH3mxQXERS5O76W0uNXd9VfZQWQ"
+AWS_STORAGE_BUCKET_NAME ="personal-assistant"
+AWS_S3_ENDPOINT_URL ="https://files-personal-assistant.fra1.digitaloceanspaces.com"
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_LOCATION = 'user_uploads/'
+AWS_DEFAULT_ACL = 'public'

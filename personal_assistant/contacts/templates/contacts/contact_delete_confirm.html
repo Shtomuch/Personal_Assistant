@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+{% extends 'users/base.html' %}
+
+{% block content %}
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,3 +27,5 @@
     <a href="{% url 'contact_list' %}" class="btn btn-primary">Cancel</a>
 </body>
 </html>
+
+{% endblock content %}
