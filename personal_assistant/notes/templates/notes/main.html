@@ -30,10 +30,8 @@
                         <td>
                             <a href="{% url 'show_url' note.id %}" class="btn btn-info btn-sm">Show</a>
                             <a href="{% url 'update_url' note.id %}" class="btn btn-warning btn-sm">Update</a>
-                            <form action="{% url 'delete_url' note.id %}" method="post" style="display:inline;">
-                                {% csrf_token %}
-                                <button type="submit" class="btn btn-danger btn-sm" style="background-color: red; border-color: red;">Delete
-                                </button>
+                            <form action="{% url 'delete_url' note.id %}" method="get" style="display:inline;">
+                                <button type="submit" class="btn btn-danger btn-sm" style="background-color: red; border-color: red;">Delete</button>
                             </form>
                         </td>
                     </tr>

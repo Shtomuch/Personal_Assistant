@@ -46,6 +46,8 @@ class UpdateNoteView(LoginRequiredMixin, UpdateView):
 
 class DeleteNoteView(LoginRequiredMixin, DeleteView):
     model = Notes
+    template_name = 'notes/delete.html'
+    context_object_name = 'note'
     success_url = reverse_lazy('main_url')
 
     def get_object(self, queryset=None):
