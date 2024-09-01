@@ -12,10 +12,11 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
-import dj_database_url
+
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-import environ
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -50,7 +51,6 @@ INSTALLED_APPS = [
     "files",
     "notes",
     "users",
-    "news",
 ]
 
 MIDDLEWARE = [

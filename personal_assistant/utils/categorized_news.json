@@ -59,6 +59,10 @@
     ],
     "science-and-technology": [
         {
+            "title": "Depressed fish? How Prozac in lakes and rivers may harm aquatic life",
+            "link": "https://www.aljazeera.com/news/2024/8/31/depressed-fish-how-prozac-in-lakes-and-rivers-may-harm-aquatic-life"
+        },
+        {
             "title": "Brazil judge blocks Starlink accounts as X suspension deadline looms",
             "link": "https://www.aljazeera.com/economy/2024/8/29/brazil-judge-blocks-starlink-accounts-as-x-suspension-deadline-looms"
         },
@@ -109,13 +113,17 @@
         {
             "title": "Why have Brazilian sharks tested positive for cocaine?",
             "link": "https://www.aljazeera.com/news/2024/7/26/why-have-brazilian-sharks-tested-positive-for-cocaine"
-        },
-        {
-            "title": "All For Science: Science learning through play in Tanzania",
-            "link": "https://www.aljazeera.com/program/africa-direct/2024/7/24/all-for-science-science-learning-through-play-in-tanzania"
         }
     ],
     "football": [
+        {
+            "title": "FIFA delays again review of Palestinian call to suspend Israel",
+            "link": "https://www.aljazeera.com/sports/2024/8/31/palestinian-call-for-israel-football-suspension-delayed-again-by-fifa"
+        },
+        {
+            "title": "Cristiano Ronaldo named in Portugal squad for upcoming UEFA Nations League",
+            "link": "https://www.aljazeera.com/sports/2024/8/30/cristiano-ronaldo-in-portugal-squad-for-upcoming-uefa-nations-league-games"
+        },
         {
             "title": "All you need to know about the new UEFA Champions League season",
             "link": "https://www.aljazeera.com/sports/2024/8/29/format-teams-dates-the-uefa-champions-league-2024-25-season-explained"
@@ -163,14 +171,6 @@
         {
             "title": "Manchester City make strong start to title defence with 2-0 win at Chelsea",
             "link": "https://www.aljazeera.com/sports/liveblog/2024/8/18/live-chelsea-vs-manchester-city-english-premier-league-football-match"
-        },
-        {
-            "title": "Salah seals Liverpool manager Slot’s debut win at Ipswich",
-            "link": "https://www.aljazeera.com/sports/liveblog/2024/8/17/live-ipswich-town-vs-liverpool-premier-league-football-match"
-        },
-        {
-            "title": "Rodri ruled out as Man City title defence opener at Chelsea hit by injuries",
-            "link": "https://www.aljazeera.com/sports/2024/8/16/chelsea-vs-manchester-city-english-premier-league-match-preview"
         }
     ]
 }
