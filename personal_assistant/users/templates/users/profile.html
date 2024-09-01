@@ -6,7 +6,7 @@
     <!-- Ліва колонка -->
     <div class="left-column">
         <div>
-            <h1>Profile: {{user.username}}</h1>
+            <h1 class = "profile" >Profile: {{user.username}}</h1>
             {% if user.avatar %}
             <img src="{{ user.avatar.url }}" alt="{{ user.username }}'s avatar" class="avatar">
             {% else %}
