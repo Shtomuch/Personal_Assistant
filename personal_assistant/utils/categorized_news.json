@@ -1,6 +1,18 @@
 {
     "economy": [
         {
+            "title": "10,000 US hotel workers strike over Labor Day weekend",
+            "link": "https://www.aljazeera.com/economy/2024/9/2/ten-thousand-us-hotel-workers-strike-as-contract-talks-break-down"
+        },
+        {
+            "title": "Taiwan court orders release of ex-Taipei mayor arrested in corruption probe",
+            "link": "https://www.aljazeera.com/news/2024/9/2/taiwan-court-orders-release-of-ex-taipei-mayor-arrested-in-corruption-probe"
+        },
+        {
+            "title": "Australia’s biggest listed casino operator suspended from stock exchange",
+            "link": "https://www.aljazeera.com/economy/2024/9/2/australias-biggest-listed-casino-group-suspended-from-stock-exchange"
+        },
+        {
             "title": "Judge orders ‘immediate suspension’ of X in Brazil",
             "link": "https://www.aljazeera.com/economy/2024/8/30/judge-orders-immediate-suspension-of-x-in-brazil"
         },
@@ -43,18 +55,6 @@
         {
             "title": "Canada follows US, imposes 100% tariff on EVs imported from China",
             "link": "https://www.aljazeera.com/economy/2024/8/26/canada-follows-us-imposes-100-tariff-on-evs-imported-from-china"
-        },
-        {
-            "title": "Australia gives workers right to ignore bosses’ after-hours calls, emails",
-            "link": "https://www.aljazeera.com/economy/2024/8/26/australia-gives-workers-right-to-ignore-bosses-after-hours-calls-emails"
-        },
-        {
-            "title": "New Zealand dairy firm fined over products using Indian butter",
-            "link": "https://www.aljazeera.com/economy/2024/8/26/new-zealand-dairy-firm-fined-over-products-using-imported-indian-butter"
-        },
-        {
-            "title": "Airlines suspend flights over clashes between Israel and Hezbollah",
-            "link": "https://www.aljazeera.com/economy/2024/8/26/airlines-suspend-flights-over-clashes-between-israel-and-hezbollah"
         }
     ],
     "science-and-technology": [
@@ -117,7 +117,7 @@
     ],
     "football": [
         {
-            "title": "LIVE: Manchester United vs Liverpool – English Premier League football",
+            "title": "Luis Diaz scores two as Liverpool trounce Manchester United at Old Trafford",
             "link": "https://www.aljazeera.com/sports/liveblog/2024/9/1/live-manchester-united-vs-liverpool-english-premier-league-football"
         },
         {

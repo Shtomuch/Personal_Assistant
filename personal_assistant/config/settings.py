@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 env = environ.Env(DEBUG=(bool, False))
-environ.Env.read_env("../.env")
+environ.Env.read_env("./.env")
 
 
 # Quick-start development settings - unsuitable for production
@@ -51,7 +51,6 @@ INSTALLED_APPS = [
     "files",
     "notes",
     "users",
-    'storages',
 ]
 
 MIDDLEWARE = [
@@ -160,18 +159,46 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 AUTH_USER_MODEL = "users.CustomUser"  # щоб джанго бачив перевизначені моделі юзера
 
-MEDIA_URL = "/media/"  # тимчасово, для зберігання локально, потім мабуть якось на хмару грузити будемо
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+USE_SPACES = os.getenv('USE_SPACES') == 'TRUE'
+
+if USE_SPACES:
+    # settings
+    AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
+    AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
+    AWS_DEFAULT_ACL = 'public-read'
+    AWS_S3_ENDPOINT_URL = env("AWS_S3_ENDPOINT_URL")
+    AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
+    # static settings
+    AWS_LOCATION = 'static'
+    #STATIC_URL = f'https://{AWS_S3_ENDPOINT_URL}/{AWS_LOCATION}/'
+    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    # public media settings
+    PUBLIC_MEDIA_LOCATION = 'media'
+    MEDIA_URL = f'https://{AWS_S3_ENDPOINT_URL}/{PUBLIC_MEDIA_LOCATION}/'
+    DEFAULT_FILE_STORAGE = 'hello_django.storage_backends.PublicMediaStorage'
+    # private media settings
+    PRIVATE_MEDIA_LOCATION = 'private'
+    PRIVATE_FILE_STORAGE = 'hello_django.storage_backends.PrivateMediaStorage'
+else:
+    # STATIC_URL = '/static/'
+    # STATIC_ROOT = BASE_DIR / 'staticfiles'
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = BASE_DIR / 'mediafiles'
+
+STATICFILES_DIRS = (BASE_DIR / 'static',)
+
+# Шлях до статичної папки
+STATIC_URL = '/static/'
+
+# Вказуємо, що статичні файли знаходяться у папці 'static' у корені проекту
+STATICFILES_DIRS = [BASE_DIR / 'static']
+
+# Опція для збирання статичних файлів у конкретну папку (зазвичай використовується на продакшені)
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+# Default primary key field type
+# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# Налаштування DigitalOcean Spaces
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_ACCESS_KEY_ID = "DO00TX7TULW62JTNG4BP"
-AWS_SECRET_ACCESS_KEY = "1mQNOqASku1tQeICxH3mxQXERS5O76W0uNXd9VfZQWQ"
-AWS_STORAGE_BUCKET_NAME ="personal-assistant"
-AWS_S3_ENDPOINT_URL ="https://files-personal-assistant.fra1.digitaloceanspaces.com"
-AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=86400',
-}
-AWS_LOCATION = 'user_uploads/'
-AWS_DEFAULT_ACL = 'public'

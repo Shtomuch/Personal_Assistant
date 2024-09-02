@@ -24,18 +24,18 @@ def contact_list(request):
 
 
 def contact_search(request):
-    query = request.GET.get('q', '')  # Отримуємо значення пошуку або порожній рядок
+    query = request.GET.get('q', '')  # Пошуковий запит для імені, телефону чи email
     birthday = request.GET.get('birthday', '')
     days_until_birthday = request.GET.get('days_until_birthday', '')
 
-    # Спочатку фільтруємо контакти за користувачем
+    # Фільтрація контактів по користувачу
     contacts = Contact.objects.filter(user=request.user)
     logger.debug(f"Initial contacts count: {contacts.count()}")
 
-    # Створюємо базовий Q об'єкт для умов фільтрації
+    # Створення базового Q об'єкта для фільтрації
     filters = Q()
 
-    # Пошук за ім'ям, прізвищем, номером телефону або email
+    # Пошук за ім'ям, телефоном або email
     if query:
         filters &= (
             Q(first_name__icontains=query) |
@@ -47,8 +47,12 @@ def contact_search(request):
 
     # Фільтрація за точною датою народження
     if birthday:
-        filters &= Q(birthday=birthday)
-        logger.debug(f"Added birthday filter: '{birthday}'")
+        try:
+            birthday_date = now().date().replace(year=int(birthday))
+            filters &= Q(birthday=birthday_date)
+            logger.debug(f"Added birthday filter: '{birthday}'")
+        except ValueError:
+            logger.error(f"Invalid birthday value: {birthday}")
 
     # Фільтрація за кількістю днів до дня народження
     if days_until_birthday:
@@ -57,31 +61,17 @@ def contact_search(request):
             today = now().date()
             target_date = today + timedelta(days=days_until_birthday)
 
-            # Перевірка місяця та дня народження, не враховуючи рік
-            filters &= Q(
-                birthday__month=target_date.month,
-                birthday__day=target_date.day
-            )
+            # Фільтрація контактів за місяцем і днем
+            filters &= Q(birthday__month=target_date.month, birthday__day=target_date.day)
             logger.debug(f"Added days_until_birthday filter: '{days_until_birthday}'")
         except ValueError:
-            logger.error(f"Invalid days_until_birthday value: {days_until_birthday}")  # Логування помилки
+            logger.error(f"Invalid days_until_birthday value: {days_until_birthday}")
 
-    # Застосовуємо всі фільтри до контактів
+    # Застосування всіх фільтрів до контактів
     contacts = contacts.filter(filters)
     logger.debug(f"Final contacts count after all filters: {contacts.count()}")
 
     return render(request, 'contacts/contact_list.html', {'contacts': contacts})
-
-def contact_edit(request, pk):
-    contact = get_object_or_404(Contact, pk=pk, user=request.user)
-    if request.method == 'POST':
-        form = ContactForm(request.POST, instance=contact)
-        if form.is_valid():
-            form.save()
-            return redirect('contact_list')
-    else:
-        form = ContactForm(instance=contact)
-    return render(request, 'contacts/contact_edit.html', {'form': form})
 
 
 def contact_delete(request, pk):

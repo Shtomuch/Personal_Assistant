@@ -14,7 +14,7 @@
       <div class="section">
         <h1 class="is-size-1">Upload Image</h1>
         <hr><br>
-        <form action="{% url "upload" %}" method="post" enctype="multipart/form-data" class="form">
+        <form action="{% url 'image_upload' %}" method="post" enctype="multipart/form-data" class="form">
           {% csrf_token %}
           <div class="field">
             <div class="control">
