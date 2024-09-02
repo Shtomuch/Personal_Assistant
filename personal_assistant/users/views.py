@@ -4,8 +4,10 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import PasswordResetView, LoginView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.management import call_command
+from django.core.cache import cache
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy, reverse
+from django.utils import timezone
 from django.views import View
 from django.contrib import messages
 from django.shortcuts import render
@@ -47,7 +49,12 @@ class CustomLoginView(LoginView):
 
 @login_required
 def profile(request, username):
-    call_command("scrape_news")
+    last_scrape_time = cache.get("last_scrape_time")
+    now = timezone.now()
+    if not last_scrape_time or (now - last_scrape_time).total_seconds() > 12 * 3600:
+        call_command("scrape_news")
+        cache.set("last_scrape_time", now, timeout=None)
+
     try:
         with open("utils/categorized_news.json", "r", encoding="utf-8") as file:
             categorized_news = json.load(file)

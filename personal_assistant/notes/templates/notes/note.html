@@ -2,13 +2,15 @@
 
 {% block content %}
 <div class="row">
-    <div class="col-md-6 offset-md-3">
+    <div class="col-md-6">
         <h2>Create Note</h2>
-        <form method="post">
+       <form method="post" style="color: #2EA1D9;">
             {% csrf_token %}
             {{ form.as_p }}
-            <p><a href="{%url 'tag_create_url' %}">No tags? Then create it!</a></p>
-            <button type="submit" class="btn btn-success">Save</button>
+            <div class="text-end">
+                <p><a href="{% url 'tag_create_url' %}">No tags? Then create it!</a></p>
+                <button type="submit" class="btn btn-success">Save</button>
+            </div>
         </form>
     </div>
 </div>
