@@ -12,7 +12,7 @@ from django.views import View
 from django.contrib import messages
 from django.shortcuts import render
 
-from .forms import RegisterForm, UserProfileForm
+from .forms import RegisterForm
 from .models import CustomUser
 
 
@@ -51,7 +51,7 @@ class CustomLoginView(LoginView):
 def profile(request, username):
     last_scrape_time = cache.get("last_scrape_time")
     now = timezone.now()
-    if not last_scrape_time or (now - last_scrape_time).total_seconds() > 12 * 3600:
+    if not last_scrape_time or (now - last_scrape_time).total_seconds() > 3600:
         call_command("scrape_news")
         cache.set("last_scrape_time", now, timeout=None)
 
@@ -62,21 +62,10 @@ def profile(request, username):
         categorized_news = {}
 
     user = get_object_or_404(CustomUser, username=username)
-    if request.method == "POST":
-        profile_form = UserProfileForm(
-            request.POST, request.FILES, instance=request.user
-        )
-        if profile_form.is_valid():
-            profile_form.save()
-            messages.success(request, "Your profile is updated successfully")
-            return redirect("users:profile", username=user.username)
-
-    profile_form = UserProfileForm(instance=request.user)
     return render(
         request,
         "users/profile.html",
         {
-            "profile_form": profile_form,
             "user": user,
             "categorized_news": categorized_news,
         },

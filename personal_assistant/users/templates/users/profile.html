@@ -7,11 +7,7 @@
     <div class="left-column">
         <div>
             <h1 class = "profile" >profile: {{user.username}}</h1>
-            {% if user.avatar %}
-            <img src="{{ user.avatar.url }}" alt="{{ user.username }}'s avatar" class="avatar">
-            {% else %}
-            <p>No avatar uploaded</p>
-            {% endif %}
+
         </div>
 
         {% if messages %}
@@ -22,22 +18,6 @@
         </div>
         {% endif %}
 
-        <form method="post" style="color: white;" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="form-row">
-                <div class="col-md-5">
-                    <div class="form-group">
-                        <label class="small mb-1 white-text">Change Avatar:</label>
-                        {{ profile_form.avatar }}
-                        <span>{{ profile_form.errors.avatar }}</span>
-                    </div>
-                </div>
-            </div>
-            <div class="grid">
-                <button type="submit" class="small-btn">Save Changes</button>
-                <button type="reset" class="small-btn secondary">Reset</button>
-            </div>
-        </form>
 
         <div class="grid" style="margin-top: 20px;">
             <a href="{% url 'contact_list'%}" class="btn btn-modern">My Contacts</a>

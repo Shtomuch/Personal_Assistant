@@ -14,9 +14,9 @@
     <link rel="stylesheet" href="{% static 'contacts/style.css' %}">
 </head>
 <body>
-    <h1>Delete Contact</h1>
+    <h1 class="white-text">Delete Contact</h1>
 
-    <p>Are you sure you want to delete the contact "{{ contact.first_name }} {{ contact.last_name }}"?</p>
+    <p class="white-text" >Are you sure you want to delete the contact "{{ contact.first_name }} {{ contact.last_name }}"?</p>
 
     <form method="POST">
         {% csrf_token %}

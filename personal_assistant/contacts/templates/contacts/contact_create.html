@@ -15,8 +15,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>Create New Contact</h1>
-        <form method="POST" action="{% url 'contact_create' %}">
+        <h1 class="white-text">Create New Contact</h1>
+        <form method="POST" class="white-text" action="{% url 'contact_create' %}">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit" class="btn btn-warning">Save Contact</button>
