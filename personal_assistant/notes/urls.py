@@ -1,6 +1,7 @@
 from django.urls import path
 from notes.views import CreateNoteView, UpdateNoteView, DeleteNoteView, ShowNoteView, MainView, AddTagView
 
+
 urlpatterns = [
     path('', MainView.as_view(), name='main_url'),
     path('create/', CreateNoteView.as_view(), name='create_url'),
