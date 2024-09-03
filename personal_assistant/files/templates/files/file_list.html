@@ -1,38 +1,42 @@
 {% extends 'users/base.html' %}
 
 {% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Your Files</h1>
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title >Your Files</title>
-</head>
-<body>
-    <h1 class="white-text">Your Files</h1>
-    <form method="GET">
-        <select name="category">
+    <!-- Форма фільтрації -->
+    <form method="GET" class="d-flex justify-content-center mb-4">
+        <select name="category" class="form-select w-auto me-2">
             <option value="all" {% if category == 'all' %}selected{% endif %}>All</option>
             <option value="image" {% if category == 'image' %}selected{% endif %}>Images</option>
             <option value="document" {% if category == 'document' %}selected{% endif %}>Documents</option>
             <option value="video" {% if category == 'video' %}selected{% endif %}>Videos</option>
             <option value="other" {% if category == 'other' %}selected{% endif %}>Other</option>
         </select>
-        <button type="submit">Filter</button>
+        <button type="submit" class="btn btn-primary">Filter</button>
     </form>
-    <ul>
+
+    <!-- Список файлів -->
+    <ul class="list-group">
         {% for file in files %}
-            <li class="white-text">
-                <a href="{{ file.file.url }}">{{ file.title }}</a> ({{ file.category }})<br>
-                Uploaded at: {{ file.uploaded_at|date:"F j, Y, g:i a" }}<br>
-                <a href="{% url 'download_file' file.id %}">Download</a> |
-                <a href="{% url 'delete_file' file.id %}">Delete</a>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <a href="{{ file.file.url }}" class="fw-bold">{{ file.title }}</a> <span class="badge bg-secondary">{{ file.category }}</span><br>
+                    <small>Uploaded at: {{ file.uploaded_at|date:"F j, Y, g:i a" }}</small>
+                </div>
+                <div>
+                    <a href="{% url 'download_file' file.id %}" class="btn btn-success btn-sm me-2">Download</a>
+                    <a href="{% url 'delete_file' file.id %}" class="btn btn-danger btn-sm">Delete</a>
+                </div>
             </li>
         {% empty %}
-            <li class="white-text">No files found.</li>
+            <li class="list-group-item text-center">No files found.</li>
         {% endfor %}
     </ul>
-    <a href="{% url 'image_upload' %}">Upload New File</a>
-</body>
-</html>
 
+    <!-- Кнопка для завантаження нового файлу -->
+    <div class="text-center mt-4">
+        <a href="{% url 'image_upload' %}" class="btn btn-secondary">Upload New File</a>
+    </div>
+</div>
 {% endblock content %}

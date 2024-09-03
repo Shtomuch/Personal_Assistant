@@ -1,14 +1,23 @@
 {% extends 'users/base.html' %}
 
 {% block content %}
-<h1 class="white-text">Upload File</h1>
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Upload File</h1>
 
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="POST" enctype="multipart/form-data" class="border p-4 shadow-sm bg-light rounded">
+                {% csrf_token %}
+                <div class="form-group mb-3">
+                    {{ form.as_p }}
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Upload</button>
+            </form>
+        </div>
+    </div>
 
-
-<form method="POST" class="white-text" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Upload</button>
-</form>
-<a href="{% url 'file_list' %}">View Your Files</a>
+    <div class="text-center mt-4">
+        <a href="{% url 'file_list' %}" class="btn btn-secondary">View Your Files</a>
+    </div>
+</div>
 {% endblock content %}
