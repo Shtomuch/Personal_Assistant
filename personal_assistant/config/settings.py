@@ -93,7 +93,7 @@ DATABASES = {
         "HOST": env("DATABASE_HOST", default="postgres"),
         "PORT": env.int("DATABASE_PORT", default=5432),
         "CONN_MAX_AGE": env.int("DATABASE_CONN_MAX_AGE", default=30),
-        "NAME": env("POSTGRES_DB ", default="postgres"),
+        "NAME": env("POSTGRES_DB", default="postgres"),
         "USER": env("POSTGRES_USER", default="postgres"),
         "PASSWORD": env("POSTGRES_PASSWORD", default="postgres"),
         "OPTIONS": {

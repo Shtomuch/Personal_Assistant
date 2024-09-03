@@ -1,6 +1,3 @@
-# files/forms.py
-from django import forms
-from .models import UserFile
 
 from django import forms
 from .models import UserFile
@@ -20,4 +17,3 @@ class UploadForm(forms.ModelForm):
 
         return file
 
-#default_auto_field = 'django.db.models.BigAutoField'

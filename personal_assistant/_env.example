@@ -1,0 +1,18 @@
+SECRET_KEY=your secret key not famous
+POSTGRES_DB=your db name
+POSTGRES_USER=your user for db
+POSTGRES_PASSWORD=your password for db
+DATABASE_HOST=your host
+DATABASE_PORT=your port
+
+MAIL_USERNAME=your email
+MAIL_PASSWORD=email password
+MAIL_FROM=email source
+MAIL_PORT=email port
+MAIL_SERVER=email server
+
+AWS_ACCESS_KEY_ID=your DigitalOcean access key ID
+AWS_SECRET_ACCESS_KEY=your DigitalOcean access key
+AWS_STORAGE_BUCKET_NAME=your DigitalOcean storage bucket name
+AWS_S3_ENDPOINT_URL=https://your-endpoint-url.digitaloceanspaces.com
+USE_SPACES=TRUE

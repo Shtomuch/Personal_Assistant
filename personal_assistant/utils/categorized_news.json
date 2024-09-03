@@ -117,6 +117,14 @@
     ],
     "football": [
         {
+            "title": "All to know about the 2024-2025 UEFA Nations League",
+            "link": "https://www.aljazeera.com/sports/2024/9/3/uefa-nations-league-2024-25-teams-groups-format-schedule-prize"
+        },
+        {
+            "title": "‘I continue to be an asset’: Ronaldo not ready to quit Portugal",
+            "link": "https://www.aljazeera.com/sports/2024/9/3/cristiano-ronaldo-not-ready-to-retire-from-international-football"
+        },
+        {
             "title": "Luis Diaz scores two as Liverpool trounce Manchester United at Old Trafford",
             "link": "https://www.aljazeera.com/sports/liveblog/2024/9/1/live-manchester-united-vs-liverpool-english-premier-league-football"
         },
@@ -163,14 +171,6 @@
         {
             "title": "Winning the mental game: Football as a fix in Africa’s largest refugee camp",
             "link": "https://www.aljazeera.com/sports/2024/8/22/in-dadaab-football-is-now-the-best-medicine-the-refugee-camp-can-provide"
-        },
-        {
-            "title": "Ronaldo creates YouTube history, smashes new one million subscribers record",
-            "link": "https://www.aljazeera.com/sports/2024/8/21/footballer-cristiano-ronaldo-breaks-new-youtube-channel-record"
-        },
-        {
-            "title": "Vardy strikes to earn Leicester City a draw against wasteful Spurs",
-            "link": "https://www.aljazeera.com/sports/liveblog/2024/8/19/live-leicester-city-vs-tottenham-hotspur-english-premier-league-football"
         }
     ]
 }
