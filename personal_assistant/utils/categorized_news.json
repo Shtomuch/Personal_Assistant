@@ -1,6 +1,14 @@
 {
     "economy": [
         {
+            "title": "New Zealand to nearly triple tax on international tourists",
+            "link": "https://www.aljazeera.com/economy/2024/9/3/new-zealand-to-nearly-triple-tax-on-international-tourists"
+        },
+        {
+            "title": "China announces anti-dumping probe into Canadian canola, chemicals",
+            "link": "https://www.aljazeera.com/economy/2024/9/3/china-announces-anti-dumping-probe-into-canadian-canola-chemicals"
+        },
+        {
             "title": "Cathay Pacific halts flights on Airbus jets over engine component failure",
             "link": "https://www.aljazeera.com/economy/2024/9/2/cathay-pacific-halts-flights-on-airbus-jets-over-engine-component-failure"
         },
@@ -47,14 +55,6 @@
         {
             "title": "Swiss court convicts two executives for embezzling $1.8bn from 1MDB",
             "link": "https://www.aljazeera.com/news/2024/8/28/swiss-court-convicts-two-executives-of-embezzling-1-8bn-from-1mdb"
-        },
-        {
-            "title": "Australia caps international student numbers amid discontent over housing",
-            "link": "https://www.aljazeera.com/economy/2024/8/27/australia-caps-international-student-numbers-amid-discontent-over-housing"
-        },
-        {
-            "title": "Elon Musk’s X tweaks chatbot after warning over US election misinformation",
-            "link": "https://www.aljazeera.com/economy/2024/8/27/elon-musks-x-tweaks-chatbot-after-warning-over-us-election-misinformation"
         }
     ],
     "science-and-technology": [

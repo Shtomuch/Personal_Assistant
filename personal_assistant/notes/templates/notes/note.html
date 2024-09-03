@@ -2,16 +2,50 @@
 
 {% block content %}
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
         <h2>Create Note</h2>
-       <form method="post" style="color: #2EA1D9;">
+        <form method="post" style="color: #2EA1D9;">
             {% csrf_token %}
-            {{ form.as_p }}
-            <div class="text-end">
+            <div class="d-flex justify-content-between align-items-start">
+                <!-- Ліва колонка з полями для нотатки -->
+                <div class="form-note">
+                    {{ form.title.label_tag }}<br>
+                    {{ form.title }}<br>
+                    {{ form.content.label_tag }}<br>
+                    {{ form.content }}
+                </div>
+
+                <!-- Права колонка з тегами -->
+                <div class="form-tags" style="margin-left: 20px;">
+                    {{ form.tags.label_tag }}<br>
+                    <ul class="list-inline">
+                        {% for tag in form.tags %}
+                            <li class="list-inline-item">{{ tag }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-end mt-3">
                 <p><a href="{% url 'tag_create_url' %}">No tags? Then create it!</a></p>
                 <button type="submit" class="btn btn-success">Save</button>
             </div>
         </form>
     </div>
 </div>
+
+<style>
+    .form-note, .form-tags {
+        width: 48%;
+    }
+    .form-tags ul {
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .form-tags ul li {
+        margin-right: 10px; /* Відступ між тегами */
+    }
+</style>
 {% endblock content %}

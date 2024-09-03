@@ -12,39 +12,52 @@
     <link rel="stylesheet" href="{% static 'contacts/style.css' %}">
 </head>
 <body>
-    <h1>Contact List</h1>
+    <h1 style="color: #dddddd">Contact List</h1>
 
-    <form method="get">
+    <form method="get" style="color: #dddddd">
         <label for="name">Search by Name:</label>
-        <input type="text" id="name" name="name">
+        <input type="text" id="name" name="name" class="form-control mb-2">
 
         <label for="birth_date">Search by Birth Date:</label>
-        <input type="date" id="birth_date" name="birth_date">
+        <input type="date" id="birth_date" name="birth_date" class="form-control mb-2">
 
         <label for="days_to_birthday">Search by Days to Birthday:</label>
-        <input type="number" id="days_to_birthday" name="days_to_birthday">
+        <input type="number" id="days_to_birthday" name="days_to_birthday" class="form-control mb-2">
 
-        <button type="submit">Search</button>
+        <button type="submit" class="btn btn-primary">Search</button>
     </form>
 
-    <ul class="list-group">
-        {% for contact in contacts %}
-            <li class="list-group-item">
-                <strong>{{ contact.first_name }} {{ contact.last_name }}</strong><br>
-                Phone: {{ contact.phone_number }}<br>
-                Email: {{ contact.email }}<br>
-                Address: {{ contact.address }}<br>
-                Birthday: {{ contact.birthday|date:"F j, Y" }}<br>
-                Days Until Birthday: {{ contact.days_until_birthday }}<br>
-                <a href="{% url 'contact_edit' contact.pk %}" class="btn btn-primary btn-sm">Edit</a>
-                <a href="{% url 'contact_delete' contact.pk %}" class="btn btn-warning btn-sm">Delete</a>
-            </li>
-        {% empty %}
-            <li class="list-group-item">No contacts found.</li>
-        {% endfor %}
-    </ul>
+    <!-- Контейнер з прокруткою для списку контактів -->
+    <div class="contact-list-container mt-4">
+        <ul class="list-group">
+            {% for contact in contacts %}
+                <li class="list-group-item">
+                    <strong>{{ contact.first_name }} {{ contact.last_name }}</strong><br>
+                    Phone: {{ contact.phone_number }}<br>
+                    Email: {{ contact.email }}<br>
+                    Address: {{ contact.address }}<br>
+                    Birthday: {{ contact.birthday|date:"F j, Y" }}<br>
+                    Days Until Birthday: {{ contact.days_until_birthday }}<br>
+                    <a href="{% url 'contact_edit' contact.pk %}" class="btn btn-primary btn-sm">Edit</a>
+                    <a href="{% url 'contact_delete' contact.pk %}" class="btn btn-warning btn-sm">Delete</a>
+                </li>
+            {% empty %}
+                <li class="list-group-item">No contacts found.</li>
+            {% endfor %}
+        </ul>
+    </div>
 
     <a href="{% url 'contact_create' %}" class="btn btn-primary mt-3">Add New Contact</a>
+
+    <style>
+        .contact-list-container {
+            max-height: 200px; /* Фіксована висота контейнера */
+            overflow-y: auto; /* Прокрутка по вертикалі */
+            border: 1px solid #ddd; /* Рамка для відокремлення контейнера */
+            padding: 10px; /* Відступи всередині контейнера */
+            background-color: #f8f9fa; /* Фоновий колір для більш чіткого вигляду */
+        }
+    </style>
 </body>
 </html>
 {% endblock content %}

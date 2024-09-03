@@ -68,19 +68,15 @@ def contact_create(request):
     return render(request, "contacts/contact_create.html", {"form": form})
 
 
-def contact_edit(request, contact_id):
-    contact = get_object_or_404(Contact, id=contact_id)
+def contact_edit(request, pk):  # Додайте pk у функцію
+    contact = get_object_or_404(Contact, pk=pk)
 
-    if request.method == "POST":
-        contact.first_name = request.POST.get("first_name")
-        contact.last_name = request.POST.get("last_name")
-        contact.phone_number = request.POST.get("phone_number")
-        contact.email = request.POST.get("email")
-        birth_date_str = request.POST.get("birth_date")
-        if birth_date_str:
-            contact.birth_date = date.fromisoformat(birth_date_str)
+    if request.method == 'POST':
+        form = ContactForm(request.POST, instance=contact)
+        if form.is_valid():
+            form.save()
+            return redirect('contact_list')  # Ваша URL назва для списку контактів
+    else:
+        form = ContactForm(instance=contact)
 
-        contact.save()
-        return redirect("contact_list")
-
-    return render(request, "contacts/contact_edit.html", {"contact": contact})
+    return render(request, 'contacts/contact_edit.html', {'form': form})

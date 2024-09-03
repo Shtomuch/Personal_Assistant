@@ -6,9 +6,7 @@ from django.forms import (
     EmailInput,
     EmailField,
     PasswordInput,
-    ModelForm,
-    ImageField,
-    FileInput,
+
 )
 
 
