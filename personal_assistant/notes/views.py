@@ -24,6 +24,7 @@ class CreateNoteView(LoginRequiredMixin, CreateView):
     def get_success_url(self):
         return reverse_lazy('main_url')
 
+
 class ShowNoteView(LoginRequiredMixin, DetailView):
     model = Notes
     template_name = 'notes/show.html'
@@ -31,6 +32,7 @@ class ShowNoteView(LoginRequiredMixin, DetailView):
 
     def get_object(self):
         return Notes.objects.get(id=self.kwargs['f_id'])
+
 
 class UpdateNoteView(LoginRequiredMixin, UpdateView):
     model = Notes
@@ -44,6 +46,7 @@ class UpdateNoteView(LoginRequiredMixin, UpdateView):
     def form_valid(self, form):
         return super().form_valid(form)
 
+
 class DeleteNoteView(LoginRequiredMixin, DeleteView):
     model = Notes
     template_name = 'notes/delete.html'
@@ -52,6 +55,7 @@ class DeleteNoteView(LoginRequiredMixin, DeleteView):
 
     def get_object(self, queryset=None):
         return Notes.objects.get(id=self.kwargs['f_id'])
+
 
 class MainView(LoginRequiredMixin, ListView):
     model = Notes
@@ -70,11 +74,13 @@ class MainView(LoginRequiredMixin, ListView):
         context['query'] = self.request.GET.get('q', '')
         return context
 
+
 class AddTagView(LoginRequiredMixin, CreateView):
     model = Tag
     template_name = 'notes/add_tag.html'
     success_url = reverse_lazy('create_url')
     form_class = TagCreateForm
+
     def get_queryset(self):
         return Notes.objects.filter(user_id=self.request.user)
 
