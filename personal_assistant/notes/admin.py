@@ -13,4 +13,4 @@ class NotesAdmin(admin.ModelAdmin):
     search_fields = ('title', 'content', 'user_id__username')
     list_filter = ('created_at', 'tags')
     ordering = ('-created_at',)
-    filter_horizontal = ('tags',)  # Додає горизонтальний інтерфейс для вибору тегів
+    filter_horizontal = ('tags',)
