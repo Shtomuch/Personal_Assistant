@@ -1,6 +1,15 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.forms import CharField, TextInput, EmailInput, EmailField, PasswordInput, ModelForm, ImageField, FileInput
+from django.forms import (
+    CharField,
+    TextInput,
+    EmailInput,
+    EmailField,
+    PasswordInput,
+    ModelForm,
+    ImageField,
+    FileInput,
+)
 
 
 class RegisterForm(UserCreationForm):
@@ -10,9 +19,9 @@ class RegisterForm(UserCreationForm):
         required=True,
         widget=TextInput(attrs={"class": "form-control"}),
     )
-    email = EmailField(max_length=50,
-                            required=True,
-                            widget=EmailInput(attrs={"class": "form-control"}))
+    email = EmailField(
+        max_length=50, required=True, widget=EmailInput(attrs={"class": "form-control"})
+    )
     password1 = CharField(
         required=True, widget=PasswordInput(attrs={"class": "form-control"})
     )
@@ -23,6 +32,7 @@ class RegisterForm(UserCreationForm):
     class Meta:
         model = get_user_model()
         fields = ("username", "email", "password1", "password2")
+
 
 class LoginForm(AuthenticationForm):
     username = CharField(
@@ -38,10 +48,3 @@ class LoginForm(AuthenticationForm):
     class Meta:
         model = get_user_model()
         fields = ("username", "password")
-
-class UserProfileForm(ModelForm):
-    avatar = ImageField(widget=FileInput())
-
-    class Meta:
-        model = get_user_model()
-        fields = ['avatar']

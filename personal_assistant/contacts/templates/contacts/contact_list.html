@@ -12,13 +12,19 @@
     <link rel="stylesheet" href="{% static 'contacts/style.css' %}">
 </head>
 <body>
-    <h1>Contact List</h1>
+    <h1 class="white-text">Contact List</h1>
 
-    <form method="GET" action="{% url 'contact_list' %}" class="mb-3">
-        <input type="text" name="q" placeholder="Search by name, phone, or email" value="{{ request.GET.q }}" class="form-control mb-2">
-        <input type="date" name="birthday" value="{{ request.GET.birthday }}" class="form-control mb-2">
-        <input type="number" name="days_until_birthday" placeholder="Days until birthday" value="{{ request.GET.days_until_birthday }}" class="form-control mb-2">
-        <button type="submit" class="btn btn-primary">Search</button>
+    <form method="get" class="white-text">
+        <label for="name">Search by Name:</label>
+        <input type="text" id="name" name="name">
+
+        <label for="birth_date">Search by Birth Date:</label>
+        <input type="date" id="birth_date" name="birth_date">
+
+        <label for="days_to_birthday">Search by Days to Birthday:</label>
+        <input type="number" id="days_to_birthday" name="days_to_birthday">
+
+        <button type="submit">Search</button>
     </form>
 
     <ul class="list-group">
@@ -29,6 +35,7 @@
                 Email: {{ contact.email }}<br>
                 Address: {{ contact.address }}<br>
                 Birthday: {{ contact.birthday|date:"F j, Y" }}<br>
+                Days Until Birthday: {{ contact.days_until_birthday }}<br>
                 <a href="{% url 'contact_edit' contact.pk %}" class="btn btn-primary btn-sm">Edit</a>
                 <a href="{% url 'contact_delete' contact.pk %}" class="btn btn-warning btn-sm">Delete</a>
             </li>

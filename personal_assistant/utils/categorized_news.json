@@ -1,12 +1,20 @@
 {
     "economy": [
         {
+            "title": "Cathay Pacific halts flights on Airbus jets over engine component failure",
+            "link": "https://www.aljazeera.com/economy/2024/9/2/cathay-pacific-halts-flights-on-airbus-jets-over-engine-component-failure"
+        },
+        {
             "title": "10,000 US hotel workers strike over Labor Day weekend",
             "link": "https://www.aljazeera.com/economy/2024/9/2/ten-thousand-us-hotel-workers-strike-as-contract-talks-break-down"
         },
         {
             "title": "Taiwan court orders release of ex-Taipei mayor arrested in corruption probe",
             "link": "https://www.aljazeera.com/news/2024/9/2/taiwan-court-orders-release-of-ex-taipei-mayor-arrested-in-corruption-probe"
+        },
+        {
+            "title": "A tech revolution in rural India: Training poor women in STEM",
+            "link": "https://www.aljazeera.com/economy/2024/8/31/a-tech-revolution-in-rural-india-training-poor-women-in-stem"
         },
         {
             "title": "Australia’s biggest listed casino operator suspended from stock exchange",
@@ -47,17 +55,13 @@
         {
             "title": "Elon Musk’s X tweaks chatbot after warning over US election misinformation",
             "link": "https://www.aljazeera.com/economy/2024/8/27/elon-musks-x-tweaks-chatbot-after-warning-over-us-election-misinformation"
-        },
-        {
-            "title": "As Ukraine, Gaza wars rage on, some airlines are benefitting",
-            "link": "https://www.aljazeera.com/economy/2024/8/26/as-ukraine-gaza-wars-rage-on-some-airlines-are-benefitting"
-        },
-        {
-            "title": "Canada follows US, imposes 100% tariff on EVs imported from China",
-            "link": "https://www.aljazeera.com/economy/2024/8/26/canada-follows-us-imposes-100-tariff-on-evs-imported-from-china"
         }
     ],
     "science-and-technology": [
+        {
+            "title": "Ban on Elon Musk’s X platform upheld by Brazil Supreme Court",
+            "link": "https://www.aljazeera.com/news/2024/9/2/ban-on-elon-musks-x-platform-upheld-by-brazil-supreme-court"
+        },
         {
             "title": "Depressed fish? How Prozac in lakes and rivers may harm aquatic life",
             "link": "https://www.aljazeera.com/news/2024/8/31/depressed-fish-how-prozac-in-lakes-and-rivers-may-harm-aquatic-life"
@@ -109,10 +113,6 @@
         {
             "title": "Pakistan to launch home-grown messaging app amid internet disruptions",
             "link": "https://www.aljazeera.com/news/2024/7/30/pakistan-to-launch-home-grown-messaging-app-amid-internet-disruptions"
-        },
-        {
-            "title": "Why have Brazilian sharks tested positive for cocaine?",
-            "link": "https://www.aljazeera.com/news/2024/7/26/why-have-brazilian-sharks-tested-positive-for-cocaine"
         }
     ],
     "football": [

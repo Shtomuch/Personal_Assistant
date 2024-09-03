@@ -40,6 +40,7 @@ h2 {
     font-weight: 700;
     font-size: 28px;
     margin-bottom: 15px;
+
 }
 
 .profile-heading {
@@ -72,19 +73,22 @@ h2 {
 
 
 .btn-warning {
-    background-color: #f39c12;
+    background-color: #161D6F;
     color: #fff;
 }
 
-
+.btn-danger {
+    background-color: #A02334;
+    color: #fff;
+}
 .btn:hover {
-    background-color: #2980b9;
+    background-color: #D6EFD8;
     transform: scale(1.05);
 }
 
 
 .btn-warning:hover {
-    background-color: #e67e22;
+    background-color: #D6EFD8;
     transform: scale(1.05);
 }
 
@@ -92,7 +96,7 @@ h2 {
     display: inline-block;
     padding: 8px 16px;
     font-size: 14px;
-    background-color: transparent;
+    background-color: #D6EFD8;
     color: #333;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -102,13 +106,14 @@ h2 {
 
 
 .small-btn:hover {
-    background-color: #f9f9f9;
+    background-color: #D6EFD8;
     color: #000;
 }
 
 
 .small-btn.secondary {
-    border-color: #bbb;
+    border-color: #D6EFD8;
+    color: #000;
 }
 .profile-container {
     display: flex;
@@ -125,15 +130,15 @@ h2 {
 }
 
 .avatar {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 20px;
+    border: 5px solid white; /* Біла рамка товщиною 5px */
+    border-radius: 50%; /* Робить рамку круглою */
+    padding: 6px; /* Простір між зображенням і рамкою */
 }
-
 .news-title {
-    font-size: 24px;
+    font-size: 38px;
     font-weight: bold;
     margin-bottom: 20px;
+    color: #D6EFD8;
 }
 
 .news-category {
@@ -163,4 +168,69 @@ h2 {
 
 .news-list a:hover {
     text-decoration: underline;
+}
+/* Для вирівнювання тіла сторінки */
+body {
+    background-image: url("{% static 'images/image.jpg' %}");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Горизонтальне вирівнювання по центру */
+    align-items: center; /* Вертикальне вирівнювання по центру */
+}
+
+/* Контейнер для заголовка і кнопок */
+.header-container {
+    text-align: center;
+}
+
+/* Стилі для заголовка */
+.header-box h1 a {
+    color: #2EA1D9; /* Колір тексту */
+    text-decoration: none; /* Вимикає підкреслення */
+    font-size: 68px; /* Розмір шрифта */
+    margin: 0; /* Вимикає відступи */
+    font-family: 'Playfair Display', serif; /* Тип шрифта */
+    text-shadow:
+        2px 2px 4px #000000, /* Основна тінь */
+        -1px -1px 0 #000000, /* Додаткова тінь */
+        1px -1px 0 #000000, /* Додаткова тінь */
+        -1px 1px 0 #000000, /* Додаткова тінь */
+        1px 1px 0 #000000; /* Додаткова тінь */
+}
+/* Контейнер для кнопок */
+.buttons-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 20px;
+}
+.home-page h1 {
+    font-size: 4rem; /* Змінюйте розмір шрифту на ваш розсуд */
+}
+
+.profile {
+    font-family: 'Playfair Display', serif;
+    font-size: 12px; /* Задайте бажаний розмір шрифту */
+    color: #D6EFD8; /* Задайте колір шрифту, якщо потрібно */
+    margin-bottom: 20px
+}
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: #D6EFD8; /* Задайте бажаний колір */
+    margin-bottom: 15px;
+}
+.white-text {
+    color: white;
+}
+
+form input,
+form select,
+form textarea {
+    width: 100%; /* Займає всю доступну ширину контейнера */
 }

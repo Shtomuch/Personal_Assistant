@@ -1,3 +1,5 @@
+from datetime import date
+
 from django.db import models
 
 # Create your models here.
@@ -6,7 +8,9 @@ from users.models import CustomUser
 
 
 class Contact(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='contacts')
+    user = models.ForeignKey(
+        CustomUser, on_delete=models.CASCADE, related_name="contacts"
+    )
     first_name = models.CharField(max_length=50, verbose_name="First Name")
     last_name = models.CharField(max_length=50, verbose_name="Last Name")
     email = models.EmailField(unique=True, verbose_name="Email Address")
@@ -20,6 +24,13 @@ class Contact(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
+
+    def days_until_birthday(self):
+        today = date.today()
+        next_birthday = date(today.year, self.birthday.month, self.birthday.day)
+        if next_birthday < today:
+            next_birthday = date(today.year + 1, self.birthday.month, self.birthday.day)
+        return (next_birthday - today).days
 
     class Meta:
         verbose_name = "Contact"

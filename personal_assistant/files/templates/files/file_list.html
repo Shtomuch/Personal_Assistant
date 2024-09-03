@@ -5,10 +5,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Your Files</title>
+    <title >Your Files</title>
 </head>
 <body>
-    <h1>Your Files</h1>
+    <h1 class="white-text">Your Files</h1>
     <form method="GET">
         <select name="category">
             <option value="all" {% if category == 'all' %}selected{% endif %}>All</option>
@@ -21,14 +21,14 @@
     </form>
     <ul>
         {% for file in files %}
-            <li>
+            <li class="white-text">
                 <a href="{{ file.file.url }}">{{ file.title }}</a> ({{ file.category }})<br>
                 Uploaded at: {{ file.uploaded_at|date:"F j, Y, g:i a" }}<br>
                 <a href="{% url 'download_file' file.id %}">Download</a> |
                 <a href="{% url 'delete_file' file.id %}">Delete</a>
             </li>
         {% empty %}
-            <li>No files found.</li>
+            <li class="white-text">No files found.</li>
         {% endfor %}
     </ul>
     <a href="{% url 'image_upload' %}">Upload New File</a>

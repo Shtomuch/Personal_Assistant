@@ -2,24 +2,15 @@
 
 {% block content %}
 <div class="row">
-    <div class="col-md-6 offset-md-3">
-        <h2 class="text-center">Create Note</h2>
-        <form method="post">
+    <div class="col-md-6">
+        <h2>Create Note</h2>
+       <form method="post" style="color: #2EA1D9;">
             {% csrf_token %}
-            <div class="mb-3">
-                {{ form.title.label_tag }}
-                {{ form.title }}
+            {{ form.as_p }}
+            <div class="text-end">
+                <p><a href="{% url 'tag_create_url' %}">No tags? Then create it!</a></p>
+                <button type="submit" class="btn btn-success">Save</button>
             </div>
-            <div class="mb-3">
-                {{ form.content.label_tag }}
-                {{ form.content }}
-            </div>
-            <div class="mb-3">
-                {{ form.tags.label_tag }}
-                {{ form.tags }}
-            </div>
-            <p><a href="{% url 'tag_create_url' %}">No tags? Then create it!</a></p>
-            <button type="submit" class="btn btn-success w-100">Save</button>
         </form>
     </div>
 </div>
