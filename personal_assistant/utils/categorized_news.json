@@ -1,6 +1,26 @@
 {
     "economy": [
         {
+            "title": "An Indian fixer lured workers to Italy. They say he used threats, violence",
+            "link": "https://www.aljazeera.com/economy/2024/9/4/an-indian-fixer-lured-workers-to-italy-they-say-he-used-threats-violence"
+        },
+        {
+            "title": "Bank of Canada cuts rates, indicates bigger cut possible",
+            "link": "https://www.aljazeera.com/economy/2024/9/4/bank-of-canada-cuts-rates-indicates-bigger-cut-possible"
+        },
+        {
+            "title": "Australia’s economy posts worst performance since 1992, excluding pandemic",
+            "link": "https://www.aljazeera.com/economy/2024/9/4/australias-economy-posts-worst-performance-since-1992-excluding-pandemic"
+        },
+        {
+            "title": "China’s Xi, Nigeria’s Tinubu pledge deeper economic ties",
+            "link": "https://www.aljazeera.com/economy/2024/9/4/chinas-xi-nigerias-tinubu-pledge-deeper-economic-ties"
+        },
+        {
+            "title": "Kamala Harris to unveil $50,000 tax deduction for new small businesses",
+            "link": "https://www.aljazeera.com/economy/2024/9/4/kamala-harris-to-unveil-50000-tax-deduction-for-new-small-businesses"
+        },
+        {
             "title": "New Zealand to nearly triple tax on international tourists",
             "link": "https://www.aljazeera.com/economy/2024/9/3/new-zealand-to-nearly-triple-tax-on-international-tourists"
         },
@@ -35,26 +55,6 @@
         {
             "title": "France’s Macron defends giving citizenship to Telegram CEO Pavel Durov",
             "link": "https://www.aljazeera.com/economy/2024/8/30/frances-macron-defends-giving-citizenship-to-telegram-ceo-pavel-durov"
-        },
-        {
-            "title": "Brazil judge blocks Starlink accounts as X suspension deadline looms",
-            "link": "https://www.aljazeera.com/economy/2024/8/29/brazil-judge-blocks-starlink-accounts-as-x-suspension-deadline-looms"
-        },
-        {
-            "title": "Brazil’s top court threatens to ban Elon Musk’s X",
-            "link": "https://www.aljazeera.com/economy/2024/8/29/brazils-top-court-threatens-to-ban-elon-musks-x"
-        },
-        {
-            "title": "South Korea arrests battery maker CEO over fire that killed 23",
-            "link": "https://www.aljazeera.com/economy/2024/8/29/south-korea-arrests-battery-maker-ceo-over-fire-that-killed-23"
-        },
-        {
-            "title": "A dangerous precedent? Telegram CEO Pavel Durov’s arrest stokes speech war",
-            "link": "https://www.aljazeera.com/economy/2024/8/28/a-dangerous-precedent-telegram-ceos-arrest-a-new-front-in-war-over-speech"
-        },
-        {
-            "title": "Swiss court convicts two executives for embezzling $1.8bn from 1MDB",
-            "link": "https://www.aljazeera.com/news/2024/8/28/swiss-court-convicts-two-executives-of-embezzling-1-8bn-from-1mdb"
         }
     ],
     "science-and-technology": [
@@ -117,6 +117,10 @@
     ],
     "football": [
         {
+            "title": "Photos: In Syria, local Paralympic games bring hope and joy",
+            "link": "https://www.aljazeera.com/gallery/2024/9/4/in-syria-local-paralympic-games-bring-hope-and-joy-to-the-disabled"
+        },
+        {
             "title": "All to know about the 2024-2025 UEFA Nations League",
             "link": "https://www.aljazeera.com/sports/2024/9/3/uefa-nations-league-2024-25-teams-groups-format-schedule-prize"
         },
@@ -167,10 +171,6 @@
         {
             "title": "New coach, new season, new players – but can Bayern Munich beat Leverkusen?",
             "link": "https://www.aljazeera.com/sports/2024/8/22/can-bayern-munich-reclaim-bundesliga-football-title-from-leverkusen"
-        },
-        {
-            "title": "Winning the mental game: Football as a fix in Africa’s largest refugee camp",
-            "link": "https://www.aljazeera.com/sports/2024/8/22/in-dadaab-football-is-now-the-best-medicine-the-refugee-camp-can-provide"
         }
     ]
 }

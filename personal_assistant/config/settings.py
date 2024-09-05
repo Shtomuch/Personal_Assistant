@@ -139,6 +139,7 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -149,12 +150,12 @@ EMAIL_BACKEND = (
     "django.core.mail.backends.smtp.EmailBackend"  # для відправки reset_password
 )
 EMAIL_HOST = env("EMAIL_HOST" , default="smtp.meta.com")
-EMAIL_PORT = env("EMAIL_PORT")
+EMAIL_PORT = env("EMAIL_PORT" , default=587)
 EMAIL_STARTTLS = False
 EMAIL_USE_SSL = True
 EMAIL_USE_TLS = False
-EMAIL_HOST_USER = env("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
+EMAIL_HOST_USER = env("EMAIL_HOST_USER", default=" ")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD", default=" ")
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 AUTH_USER_MODEL = "users.CustomUser"  # щоб джанго бачив перевизначені моделі юзера
@@ -163,11 +164,11 @@ USE_SPACES = os.getenv('USE_SPACES') == 'TRUE'
 
 if USE_SPACES:
     # settings
-    AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
-    AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
+    AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID', default=" ")
+    AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY", default=" ")
+    AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME", default=" ")
     AWS_DEFAULT_ACL = 'public-read'
-    AWS_S3_ENDPOINT_URL = env("AWS_S3_ENDPOINT_URL")
+    AWS_S3_ENDPOINT_URL = env("AWS_S3_ENDPOINT_URL", default=" ")
     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
     # static settings
     AWS_LOCATION = 'static'

@@ -1,0 +1,44 @@
+# Ігноруємо файли з управління версіями
+.git
+.gitignore
+.gitattributes
+
+# Ігноруємо файли з середовищем розробки
+.idea
+.vscode
+*.swp
+*.swo
+*.swn
+*.swo
+*.swn
+*.DS_Store
+
+# Ігноруємо локальні файли конфігурацій
+.env
+*.local
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+
+# Ігноруємо файли Python кэша
+*.egg-info
+.eggs
+*.pytest_cache
+__pycache__
+
+# Ігноруємо статичні файли та медіа, які будуть зібрані під час збірки
+static/
+media/
+staticfiles/
+mediafiles/
+
+# Ігноруємо лог файли та файли бази даних
+*.log
+*.sqlite3
+db.sqlite3
+
+# Ігноруємо компіляційні артефакти
+build/
+dist/
+*.egg-info/
