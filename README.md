@@ -45,3 +45,5 @@ To get started with the Personal Assistant application, please ensure you have P
      ```
 
 Your Personal Assistant is now up and running, ready for use!
+
+---
