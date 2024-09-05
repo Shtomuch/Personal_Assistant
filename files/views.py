@@ -27,11 +27,22 @@ def upload_file(request):
         form = UploadForm()
     return render(request, 'files/upload_file.html', {'form': form})
 
+
 @login_required
 def file_list(request):
-    files = UserFile.objects.filter(user=request.user)  # Відображаємо лише файли поточного користувача
-    return render(request, 'files/file_list.html', {'files': files})
 
+    category = request.GET.get('category', 'all')
+
+    if category == 'all':
+        files = UserFile.objects.filter(user=request.user)
+    else:
+        files = UserFile.objects.filter(user=request.user, category=category)
+
+    context = {
+        'files': files,
+        'category': category,
+    }
+    return render(request, 'files/file_list.html', context)
 
 @login_required
 def download_file(request, file_id):

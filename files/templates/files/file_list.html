@@ -4,16 +4,16 @@
 <div class="container mt-5">
     <h1 class="text-center mb-4" style="color: #dddddd;">Your Files</h1>
 
-    <!-- Форма фільтрації -->
-    <form method="GET" class="d-flex justify-content-center mb-4">
-        <select name="category" class="form-select w-auto me-2">
-            <option value="all" {% if category == 'all' %}selected{% endif %}>All</option>
-            <option value="image" {% if category == 'image' %}selected{% endif %}>Images</option>
-            <option value="document" {% if category == 'document' %}selected{% endif %}>Documents</option>
-            <option value="video" {% if category == 'video' %}selected{% endif %}>Videos</option>
-            <option value="other" {% if category == 'other' %}selected{% endif %}>Other</option>
-        </select>
-        <button type="submit" class="btn btn-primary">Filter</button>
+    <form method="GET">
+    <label for="category">Select Category:</label>
+    <select id="category" name="category" class="form-select w-auto me-2">
+        <option value="all" {% if category == 'all' %}selected{% endif %}>All</option>
+        <option value="image" {% if category == 'image' %}selected{% endif %}>Images</option>
+        <option value="document" {% if category == 'document' %}selected{% endif %}>Documents</option>
+        <option value="video" {% if category == 'video' %}selected{% endif %}>Videos</option>
+        <option value="other" {% if category == 'other' %}selected{% endif %}>Other</option>
+    </select>
+    <button type="submit" class="btn btn-primary">Filter</button>
     </form>
 
     <!-- Контейнер з прокруткою для списку файлів -->

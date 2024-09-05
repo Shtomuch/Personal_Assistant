@@ -1,8 +1,24 @@
 {
     "economy": [
         {
+            "title": "New Zealand’s young leaving in record numbers as cost of living bites",
+            "link": "https://www.aljazeera.com/economy/2024/9/5/new-zealands-young-are-departing-in-record-numbers-as-cost-of-living-bites"
+        },
+        {
+            "title": "China’s Xi promises one million jobs for Africa",
+            "link": "https://www.aljazeera.com/economy/2024/9/5/chinas-xis-promises-one-million-jobs-for-africa"
+        },
+        {
+            "title": "US charges RT employees over alleged secret funding of right-wing media",
+            "link": "https://www.aljazeera.com/news/2024/9/5/us-accuses-russias-rt-of-interference-in-2024-election"
+        },
+        {
             "title": "An Indian fixer lured workers to Italy. They say he used threats, violence",
             "link": "https://www.aljazeera.com/economy/2024/9/4/an-indian-fixer-lured-workers-to-italy-they-say-he-used-threats-violence"
+        },
+        {
+            "title": "Kamala Harris departs from Biden capital gains tax plan to widen her reach",
+            "link": "https://www.aljazeera.com/economy/2024/9/4/kamala-harris-departs-from-biden-capital-gains-tax-plan-to-widen-her-reach"
         },
         {
             "title": "Bank of Canada cuts rates, indicates bigger cut possible",
@@ -15,6 +31,14 @@
         {
             "title": "China’s Xi, Nigeria’s Tinubu pledge deeper economic ties",
             "link": "https://www.aljazeera.com/economy/2024/9/4/chinas-xi-nigerias-tinubu-pledge-deeper-economic-ties"
+        },
+        {
+            "title": "Former Volkswagen boss faces trial for ‘Dieselgate’ role",
+            "link": "https://www.aljazeera.com/news/2024/9/3/former-volkswagen-boss-faces-trial-for-dieselgate-role"
+        },
+        {
+            "title": "Hewlett Packard to pursue $4bn claim against late tech mogul Mike Lynch",
+            "link": "https://www.aljazeera.com/economy/2024/9/3/hewlett-packard-to-pursue-4bn-claim-against-late-tech-mogul-mike-lynch"
         },
         {
             "title": "Kamala Harris to unveil $50,000 tax deduction for new small businesses",
@@ -31,33 +55,13 @@
         {
             "title": "Cathay Pacific halts flights on Airbus jets over engine component failure",
             "link": "https://www.aljazeera.com/economy/2024/9/2/cathay-pacific-halts-flights-on-airbus-jets-over-engine-component-failure"
-        },
-        {
-            "title": "10,000 US hotel workers strike over Labor Day weekend",
-            "link": "https://www.aljazeera.com/economy/2024/9/2/ten-thousand-us-hotel-workers-strike-as-contract-talks-break-down"
-        },
-        {
-            "title": "Taiwan court orders release of ex-Taipei mayor arrested in corruption probe",
-            "link": "https://www.aljazeera.com/news/2024/9/2/taiwan-court-orders-release-of-ex-taipei-mayor-arrested-in-corruption-probe"
-        },
-        {
-            "title": "A tech revolution in rural India: Training poor women in STEM",
-            "link": "https://www.aljazeera.com/economy/2024/8/31/a-tech-revolution-in-rural-india-training-poor-women-in-stem"
-        },
-        {
-            "title": "Australia’s biggest listed casino operator suspended from stock exchange",
-            "link": "https://www.aljazeera.com/economy/2024/9/2/australias-biggest-listed-casino-group-suspended-from-stock-exchange"
-        },
-        {
-            "title": "Judge orders ‘immediate suspension’ of X in Brazil",
-            "link": "https://www.aljazeera.com/economy/2024/8/30/judge-orders-immediate-suspension-of-x-in-brazil"
-        },
-        {
-            "title": "France’s Macron defends giving citizenship to Telegram CEO Pavel Durov",
-            "link": "https://www.aljazeera.com/economy/2024/8/30/frances-macron-defends-giving-citizenship-to-telegram-ceo-pavel-durov"
         }
     ],
     "science-and-technology": [
+        {
+            "title": "‘From the river to the sea’ doesn’t violate Meta rules: Oversight panel",
+            "link": "https://www.aljazeera.com/news/2024/9/4/from-the-river-to-the-sea-doesnt-violate-meta-rules-oversight-panel"
+        },
         {
             "title": "Ban on Elon Musk’s X platform upheld by Brazil Supreme Court",
             "link": "https://www.aljazeera.com/news/2024/9/2/ban-on-elon-musks-x-platform-upheld-by-brazil-supreme-court"
@@ -109,13 +113,21 @@
         {
             "title": "Will eating insects save the planet?",
             "link": "https://www.aljazeera.com/news/2024/8/4/will-eating-insects-save-the-planet"
-        },
-        {
-            "title": "Pakistan to launch home-grown messaging app amid internet disruptions",
-            "link": "https://www.aljazeera.com/news/2024/7/30/pakistan-to-launch-home-grown-messaging-app-amid-internet-disruptions"
         }
     ],
     "football": [
+        {
+            "title": "No Messi or Ronaldo among Ballon d’Or nominees as Spanish stars dominate",
+            "link": "https://www.aljazeera.com/sports/2024/9/5/no-messi-or-ronaldo-among-ballon-dor-nominees-as-spanish-stars-dominate"
+        },
+        {
+            "title": "Nigeria star Osimhen joins Galatasary on loan from Napoli",
+            "link": "https://www.aljazeera.com/sports/2024/9/4/nigeria-star-osimhen-joins-galatasary-on-loan-from-napoli"
+        },
+        {
+            "title": "All to know about the Asian qualifiers for the FIFA World Cup 2026",
+            "link": "https://www.aljazeera.com/sports/2024/9/4/world-cup-2026-afc-qualifiers-teams-groups-format-schedule-prize-money"
+        },
         {
             "title": "Photos: In Syria, local Paralympic games bring hope and joy",
             "link": "https://www.aljazeera.com/gallery/2024/9/4/in-syria-local-paralympic-games-bring-hope-and-joy-to-the-disabled"
@@ -159,18 +171,6 @@
         {
             "title": "Slot extends perfect start at Liverpool with comfortable win over Brentford",
             "link": "https://www.aljazeera.com/sports/liveblog/2024/8/25/live-liverpool-vs-brentford-english-premier-league-football"
-        },
-        {
-            "title": "Trossard and Partey strikes seal Arsenal win at Aston Villa",
-            "link": "https://www.aljazeera.com/sports/liveblog/2024/8/24/live-aston-villa-vs-arsenal-premier-league-football-match"
-        },
-        {
-            "title": "Joao Pedro scores late to give Brighton a 2-1 win over Manchester United",
-            "link": "https://www.aljazeera.com/sports/liveblog/2024/8/24/live-brighton-vs-manchester-united-premier-league-football"
-        },
-        {
-            "title": "New coach, new season, new players – but can Bayern Munich beat Leverkusen?",
-            "link": "https://www.aljazeera.com/sports/2024/8/22/can-bayern-munich-reclaim-bundesliga-football-title-from-leverkusen"
         }
     ]
 }
