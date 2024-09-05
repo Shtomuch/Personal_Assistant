@@ -1,7 +1,7 @@
 version: '3.7'
 
 x-backend-service: &x-backend-service
-  image: briler/second-brain:latest
+  image: denys1608/personal-assistant:latest
   env_file:
     - .env
   restart: unless-stopped
@@ -21,7 +21,7 @@ services:
       - 8000
     volumes:
       - static_volume:/app/static
-    command: [ "gunicorn", "-c", "/app/app/gunicorn.py", "app.wsgi" ]
+    command: [ "gunicorn", "-c", "/app/config/gunicorn.py", "config.wsgi" ]
 
   nginx:
     image: nginx:1.25-alpine
