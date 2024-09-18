@@ -22,6 +22,9 @@ services:
     volumes:
       - static_volume:/app/static
       - assets_volume:/app/assets
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
     command: [ "gunicorn", "-c", "/app/config/gunicorn.py", "config.wsgi" ]
 
   nginx:
